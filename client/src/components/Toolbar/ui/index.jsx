@@ -23,6 +23,16 @@ const Toolbar = observer(() => {
     toolStore.setStrokeColor(e.target.value)
   }
 
+	const download = () => {
+		const dataUrl = canvasState.canvas.toDataURL()
+		const a = document.createElement('a')
+		a.href = dataUrl
+		a.download = '.png'
+		document.body.append(a)
+		a.click()
+		document.body.removeChild(a)
+	}
+
 	return (
 		<Box
 			sx={{
@@ -73,7 +83,7 @@ const Toolbar = observer(() => {
 				<RedoIcon />
 			</IconButton>
 
-			<IconButton>
+			<IconButton onClick={download}>
 				<SaveIcon />
 			</IconButton>
 		</Box>
