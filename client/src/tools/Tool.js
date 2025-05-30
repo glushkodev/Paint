@@ -16,15 +16,15 @@ export default class Tool {
 		this.canvas.onmousemove = null
 	}
 
-	set fillColor (color) {
+	set fillColor(color) {
 		this.ctx.fillStyle = color
 	}
 
-	set lineWidth (width) {
+	set lineWidth(width) {
 		this.ctx.lineWidth = width
 	}
 
-	set strokeColor (color) {
-		this.ctx.strokeColor = color
+	set strokeColor(color) {
+		this.ctx.strokeStyle = color
 	}
 }

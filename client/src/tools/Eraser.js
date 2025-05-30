@@ -10,6 +10,4 @@ export default class Eraser extends Brush {
 		this.ctx.lineTo(x, y)
 		this.ctx.stroke()
 	}
-
-
 }

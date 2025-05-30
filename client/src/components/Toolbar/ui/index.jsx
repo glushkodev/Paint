@@ -14,6 +14,7 @@ import canvasState from '../../../store/canvasState'
 import Rect from '../../../tools/Rect'
 import Circle from '../../../tools/Circle'
 import Eraser from '../../../tools/Eraser'
+import Line from '../../../tools/Line'
 
 const Toolbar = observer(() => {
 
@@ -56,7 +57,9 @@ const Toolbar = observer(() => {
 				<DriveFileRenameOutlineIcon />
 			</IconButton>
 
-			<IconButton>
+			<IconButton
+				onClick={() => toolStore.setTool(new Line(canvasState.canvas))}
+			>
 				<HorizontalRuleIcon />
 			</IconButton>
 			

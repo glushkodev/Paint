@@ -52,7 +52,5 @@ export default class Rect extends Tool {
 			this.ctx.fill()
 			this.ctx.stroke()
 		}
-
-		
 	}
 }
