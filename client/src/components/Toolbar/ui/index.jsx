@@ -65,11 +65,11 @@ const Toolbar = observer(() => {
 			
 			<input type='color' onChange={(e) => colorChange(e)}/>
 
-			<IconButton sx={{ marginLeft: 'auto' }}>
+			<IconButton sx={{ marginLeft: 'auto' }} onClick={() => canvasState.undo()}>
 				<UndoIcon />
 			</IconButton>
 
-			<IconButton>
+			<IconButton onClick={() => canvasState.redo()}>
 				<RedoIcon />
 			</IconButton>
 

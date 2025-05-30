@@ -10,6 +10,10 @@ const Canvas = observer(() => {
 		canvasState.setCanvas(canvasRef.current)
 	}, [])
 
+	const mouseDownHandler = () => {
+		canvasState.setUndo(canvasState.canvas.toDataURL())
+	}
+
 	return (
 		<Box
 			sx={{
@@ -20,7 +24,7 @@ const Canvas = observer(() => {
 				flexGrow: '1'
 			}}
 		>
-			<canvas width={600} height={400} style={{ border: '1px solid #000' }} ref={canvasRef}/>
+			<canvas width={600} height={400} style={{ border: '1px solid #000' }} ref={canvasRef} onMouseDown={mouseDownHandler}/>
 		</Box>
 	)
 })
