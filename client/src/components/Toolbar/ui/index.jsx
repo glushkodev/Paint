@@ -15,6 +15,7 @@ import Rect from '../../../tools/Rect'
 import Circle from '../../../tools/Circle'
 import Eraser from '../../../tools/Eraser'
 import Line from '../../../tools/Line'
+import userStore from '../../../store/userStore'
 
 const Toolbar = observer(() => {
 
@@ -44,31 +45,31 @@ const Toolbar = observer(() => {
 			}}
 		>
 			<IconButton
-				onClick={() => toolStore.setTool(new Brush(canvasState.canvas))}
+				onClick={() => toolStore.setTool(new Brush(canvasState.canvas, userStore.socket, userStore.sessionID))}
 			>
 				<BrushIcon />
 			</IconButton>
 
 			<IconButton
-				onClick={() => toolStore.setTool(new Rect(canvasState.canvas))}
+				onClick={() => toolStore.setTool(new Rect(canvasState.canvas, userStore.socket, userStore.sessionID))}
 			>
 				<CropSquareIcon />
 			</IconButton>
 
 			<IconButton
-				onClick={() => toolStore.setTool(new Circle(canvasState.canvas))}
+				onClick={() => toolStore.setTool(new Circle(canvasState.canvas, userStore.socket, userStore.sessionID))}
 			>
 				<CircleIcon />
 			</IconButton>
 
 			<IconButton 
-				onClick={() => toolStore.setTool(new Eraser(canvasState.canvas))}
+				onClick={() => toolStore.setTool(new Eraser(canvasState.canvas, userStore.socket, userStore.sessionID))}
 			>
 				<DriveFileRenameOutlineIcon />
 			</IconButton>
 
 			<IconButton
-				onClick={() => toolStore.setTool(new Line(canvasState.canvas))}
+				onClick={() => toolStore.setTool(new Line(canvasState.canvas, userStore.socket, userStore.sessionID))}
 			>
 				<HorizontalRuleIcon />
 			</IconButton>

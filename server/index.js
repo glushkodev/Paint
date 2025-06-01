@@ -25,6 +25,26 @@ app.ws('/', (ws, req) => {
 	})
 })
 
+app.post('/image', (req, resp) => {
+  try {
+    const data = req.body.img?.replace('data:image/png;base64', '')
+    fs.writeFileSync(path.resolve(__dirname, 'files', `${req }.png`), data, 'base64')
+    return resp.status(200).json('Загружено')
+  } catch (error) {
+    return resp.status(500).json('error')
+  }
+})
+
+app.get('/image', (req, resp) => {
+  try {
+    const file = fs.readFileSync(path.resolve(__dirname, 'files', `${req.query.id}.png`))
+    const data = 'data:image/png;base64,' + file.toString('base64')
+    resp.json(data)
+  } catch (error) {
+    return resp.status(500).json('error')
+  }
+})
+
 app.listen(PORT, () => console.log('сервер запущен'))
 
 const connectionHandler = (ws, msg) => {

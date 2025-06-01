@@ -2,17 +2,10 @@ import { Box } from "@mui/material"
 import Toolbar from "./components/Toolbar"
 import { Settingsbar } from "./components/Settingsbar/ui"
 import { Canvas } from "./components/Canvas"
-import { Route, Routes, useNavigate} from 'react-router'
+import { Route, Routes, useNavigate, useParams} from 'react-router'
 import { useEffect } from "react"
 
 function App() {
-  const navigate = useNavigate()
-
-  useEffect(() => {
-    const uid = crypto.randomUUID()
-    navigate(`/${uid}`)
-  }, [])
-
   return (
     <Box 
       sx={{
@@ -23,7 +16,7 @@ function App() {
     >
       <Routes>
         <Route 
-          path=":id"
+          path="/"
           element={
             <>
               <Toolbar />
@@ -31,7 +24,18 @@ function App() {
               <Canvas />
             </>
           }
-        />
+        >
+          <Route 
+            path=":id"
+            element={
+              <>
+                <Toolbar />
+                <Settingsbar />
+                <Canvas />
+              </>
+            }
+          />
+        </Route>
       </Routes>
     </Box>
   )
