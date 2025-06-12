@@ -1,6 +1,6 @@
 import { Box } from "@mui/material"
 import Toolbar from "./components/Toolbar"
-import { Settingsbar } from "./components/Settingsbar/ui"
+import Settingsbar from "./components/Settingsbar"
 import { Canvas } from "./components/Canvas"
 import { Route, Routes, useNavigate, useParams} from 'react-router'
 import { useEffect } from "react"
